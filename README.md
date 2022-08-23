@@ -1,6 +1,6 @@
 Beginning rock paper scissors game
 
-first function randomly picks computer's choice
+first function randomly picks computer's choice('rock', 'paper', 'scissors')
 
 second function plays the rps game - two parameters being player 1/2
 
