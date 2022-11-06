@@ -38,29 +38,29 @@ function playRound(player, computer) {
     }
 }
 
-function game() {
-    let playerScore = 0;
-    let computerScore = 0;
-    let ties = 0;
+// function game() {
+//     let playerScore = 0;
+//     let computerScore = 0;
+//     let ties = 0;
 
-    for (round = 0; round < 5; round++) {
-        let playerSelection = prompt("Choose 'rock', 'paper', or 'scissors'");
-        let computerSelection = getComputerChoice();
-        let winner = playRound(playerSelection, computerSelection);
+//     for (round = 0; round < 5; round++) {
+//         let playerSelection = prompt("Choose 'rock', 'paper', or 'scissors'");
+//         let computerSelection = getComputerChoice();
+//         let winner = playRound(playerSelection, computerSelection);
 
-        if (winner == 'error') {
-            round--;
-            alert('Invalid input');
-            continue;
-        } else if (winner == 'player') {
-            playerScore++;
-        } else if (winner == 'computer') {
-            computerScore++;
-        } else {
-            ties++;
-        }
-    }
-    alert(`Player score: ${playerScore}\nComputer score: ${computerScore}\nTies: ${ties}`)
-}
+//         if  (winner == 'error') {
+//             round--;
+//             alert('Invalid input');
+//             continue;
+//         } else if (winner == 'player') {
+//             playerScore++;
+//         } else if (winner == 'computer') {
+//             computerScore++;
+//         } else {
+//             ties++;
+//         }
+//     }
+//     alert(`Player score: ${playerScore}\nComputer score: ${computerScore}\nTies: ${ties}`)
+// }
 
-game();
+// game();

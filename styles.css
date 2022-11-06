@@ -1,4 +1,24 @@
 body {
-    background-color: rgb(71, 71, 71);
-    color: white; 
+    background-color: rgb(181, 181, 181);
+    color: black; 
+    display: flex;
+    flex-direction: column;
+}
+
+.battleContainer {
+    background-color: blue;
+    min-width: 120px;
+    min-height: 120px;
+}
+
+.buttonContainer {
+    background-color: brown;
+    min-width: 120px;
+    min-height: 120px;
+}
+
+.scoreContainer {
+    background-color: grey;
+    min-width: 120px;
+    min-height: 120px;
 }

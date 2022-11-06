@@ -1,9 +1,8 @@
-Beginning rock paper scissors game
+Beginning rock paper scissors game complete
 
-first function randomly picks computer's choice('rock', 'paper', 'scissors')
-
-second function plays the rps game - two parameters being player 1/2
-
-loop for a set of games
-
-keep track of wins
+UI begin:
+1. remove the logic that plays 5 rounds - 6/11
+2. create 3 buttons for each player choice - add event listener that calls playRound() for each choice
+3. add a div for displaying results - change console logs into dom methods
+4. keep running score and announce winner after 5 points
+4. 
