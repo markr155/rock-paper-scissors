@@ -1,5 +1,5 @@
 function getComputerChoice() {
-    let choices = ['rock', 'paper', 'scissors'];
+    let choices = ['Rock', 'Paper', 'Scissors'];
     randIndex = Math.floor(Math.random() * 3);;
     return choices[randIndex];
 }
@@ -7,6 +7,7 @@ function getComputerChoice() {
 function playRound(player, computer) {
     player = player.toString();
     player = player.toLowerCase();
+    computer = computer.toLowerCase();
     
     //return player/computer/tie for who wins
     if (player == 'rock') {
@@ -38,29 +39,49 @@ function playRound(player, computer) {
     }
 }
 
-// function game() {
-//     let playerScore = 0;
-//     let computerScore = 0;
-//     let ties = 0;
+function updateScore(winner) {
+    if (winner == 'player') {
+        playerScore++;
+    } else if (winner == 'computer') {
+        computerScore++;
+    } else {
+        ties++;
+    }
+    scoreContainer.textContent = `Player score: ${playerScore} Computer score: ${computerScore} Ties: ${ties}`
+};
 
-//     for (round = 0; round < 5; round++) {
-//         let playerSelection = prompt("Choose 'rock', 'paper', or 'scissors'");
-//         let computerSelection = getComputerChoice();
-//         let winner = playRound(playerSelection, computerSelection);
+function updateBattle(playerSelection, compChoice){
+    battleContainer.textContent = `Player Choice: ${playerSelection} Computer Choice: ${compChoice}`
+};
 
-//         if  (winner == 'error') {
-//             round--;
-//             alert('Invalid input');
-//             continue;
-//         } else if (winner == 'player') {
-//             playerScore++;
-//         } else if (winner == 'computer') {
-//             computerScore++;
-//         } else {
-//             ties++;
-//         }
-//     }
-//     alert(`Player score: ${playerScore}\nComputer score: ${computerScore}\nTies: ${ties}`)
-// }
+function checkWinner(playerScore, computerScore, ties){
+    if (playerScore >= 5){
+        scoreContainer.textContent = `Player score: ${playerScore} Computer score: ${computerScore} Ties: ${ties}
+        Player wins!`
+    } else if (computerScore >= 5){
+        scoreContainer.textContent = `Player score: ${playerScore} Computer score: ${computerScore} Ties: ${ties}
+        Computer wins!`
+    } else if (ties >= 5) {
+        scoreContainer.textContent = `Player score: ${playerScore} Computer score: ${computerScore} Ties: ${ties}
+        The game is a tie!`
+    }
+};
 
-// game();
+let playerScore = 0;
+let computerScore = 0;
+let ties = 0;
+const scoreContainer = document.querySelector('.scoreContainer');
+const battleContainer = document.querySelector('.battleContainer');
+
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        let playerSelection = button.id;
+        let compChoice = getComputerChoice();
+        let winner = playRound(playerSelection, compChoice);
+        updateBattle(playerSelection, compChoice);
+        updateScore(winner);
+        checkWinner(playerScore, computerScore, ties);
+    
+    });
+});
