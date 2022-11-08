@@ -39,15 +39,21 @@ function playRound(player, computer) {
     }
 }
 
-function updateScore(winner) {
+    // updates running score and inputs round into score log
+function updateScore(winner, playerSelection, compChoice) {
+    let newLog = document.createElement("li");
     if (winner == 'player') {
         playerScore++;
+        newLog.textContent += `Player scores with ${playerSelection} over ${compChoice}`
     } else if (winner == 'computer') {
         computerScore++;
+        newLog.textContent += `Computer scores with ${compChoice} over ${playerSelection}`
     } else {
         ties++;
+        newLog.textContent += `A tied point! Both players chose ${playerSelection}`
     }
-    scoreContainer.textContent = `Player score: ${playerScore} Computer score: ${computerScore} Ties: ${ties}`
+    scoreLog.appendChild(newLog);
+    scoreDisplay.textContent = `Player score: ${playerScore} Computer score: ${computerScore} Ties: ${ties}`;
 };
 
 function updateBattle(playerSelection, compChoice){
@@ -55,22 +61,24 @@ function updateBattle(playerSelection, compChoice){
 };
 
 function checkWinner(playerScore, computerScore, ties){
+    let newLog = document.createElement('li');
     if (playerScore >= 5){
-        scoreContainer.textContent = `Player score: ${playerScore} Computer score: ${computerScore} Ties: ${ties}
-        Player wins!`
+        newLog.textContent += `Player wins!`
+        scoreLog.appendChild(newLog);
     } else if (computerScore >= 5){
-        scoreContainer.textContent = `Player score: ${playerScore} Computer score: ${computerScore} Ties: ${ties}
-        Computer wins!`
+        newLog.textContent += `Computer wins!`
+        scoreLog.appendChild(newLog);
     } else if (ties >= 5) {
-        scoreContainer.textContent = `Player score: ${playerScore} Computer score: ${computerScore} Ties: ${ties}
-        The game is a tie!`
+        newLog.textContent += `The game is a tie!`
+        scoreLog.appendChild(newLog);
     }
 };
 
 let playerScore = 0;
 let computerScore = 0;
 let ties = 0;
-const scoreContainer = document.querySelector('.scoreContainer');
+const scoreDisplay = document.querySelector('.scoreDisplay');
+const scoreLog = document.querySelector('#scoreLog');
 const battleContainer = document.querySelector('.battleContainer');
 
 const buttons = document.querySelectorAll('button');
@@ -80,7 +88,7 @@ buttons.forEach((button) => {
         let compChoice = getComputerChoice();
         let winner = playRound(playerSelection, compChoice);
         updateBattle(playerSelection, compChoice);
-        updateScore(winner);
+        updateScore(winner, playerSelection, compChoice);
         checkWinner(playerScore, computerScore, ties);
     
     });
