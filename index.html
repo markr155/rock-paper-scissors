@@ -1,25 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <link rel="stylesheet" href="styles.css">
-        <meta charset="UTF-8">
-        <title>Rock Paper Scissors</title>
-    </head>
-    <body> 
-        <h1>Rock Paper Scissors!</h1>
-        <div class="battleContainer">Player Choice: Computer Choice:</div>
-        <div class="buttonContainer">
-            <button id="Rock">Rock</button>
-            <button id="Paper">Paper</button>
-            <button id="Scissors">Scissors</button>
-        </div>
-        <div class="scoreContainer">
-            <div class="scoreDisplay">Player score: 0 Computer score: 0 Ties: 0 </div>
-            <div class="scoreLog">
-                <ul id="scoreLog"></ul>
-            </div>
-        </div>
+	<head>
+		<link rel="stylesheet" href="styles.css" />
+		<meta charset="UTF-8" />
+		<title>Rock Paper Scissors</title>
+	</head>
+	<body>
+		<h1>Rock Paper Scissors!</h1>
+		<div class="battleContainer">
+			<p>Player Choice: Computer Choice:</p>
+			<div class="choiceCardContainer">
+				<div class="choiceCard" id="playerCard">
+                    <object class="choiceSVG" type="image/svg+xml" data="imgs/rock.svg"></object>
+                </div>
+				<div class="choiceCard" id="comCard"></div>
+			</div>
+		</div>
+		<div class="buttonContainer">
+			<button id="Rock">Rock</button>
+			<button id="Paper">Paper</button>
+			<button id="Scissors">Scissors</button>
+		</div>
+		<div class="scoreContainer">
+			<div class="scoreDisplay">Player score: 0 Computer score: 0 Ties: 0</div>
+			<div class="scoreLog">
+				<ul id="scoreLog"></ul>
+			</div>
+		</div>
 
-        <script src="javascript.js"></script>
-    </body>
+		<script src="javascript.js"></script>
+	</body>
 </html>

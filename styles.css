@@ -1,49 +1,75 @@
+div {
+	border: 1px solid white;
+}
+
 body {
-    background-color: rgb(17 24 3);
-    color: rgb(209 213 219); 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
+	background-color: rgb(17 24 3);
+	color: rgb(209 213 219);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .battleContainer {
-    background-color: rgb(31 41 55);
-    min-width: 100%;
-    min-height: 120px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	background-color: rgb(31 41 55);
+	min-width: 100%;
+	min-height: 120px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.choiceCardContainer {
+	width: 50%;
+	height: 200px;
+	display: flex;
+	/* align-items: center; */
+	justify-content: space-evenly;
+}
+
+.choiceCard {
+	width: 30%;
+	aspect-ratio: 1;
+}
+
+.choiceSVG {
+	width: 100%;
+}
+
+.choiceSVG > * {
+	stroke: white;
+	fill: white;
 }
 
 .buttonContainer {
-    background-color: rgb(31 41 55);
-    display: flex;
-    justify-content: center;
-    min-width: 100%;
+	background-color: rgb(31 41 55);
+	display: flex;
+	justify-content: center;
+	min-width: 100%;
 }
 
 button {
-    margin: 8px;
-    padding: 4px 12px
+	margin: 8px;
+	padding: 4px 12px;
 }
 
 .scoreContainer {
-    background-color: rgb(31 41 55);
-    min-width: 120px;
-    min-height: 120px;
-    display: flex;
-    flex-flow: column nowrap;
-    padding: 8px;
-    min-width: 100%;
+	background-color: rgb(31 41 55);
+	min-width: 120px;
+	min-height: 120px;
+	display: flex;
+	flex-flow: column nowrap;
+	padding: 8px;
+	min-width: 100%;
 }
 
 ul {
-    margin: 16px 0;
-    padding: 0;
-    list-style-type: none;
+	margin: 16px 0;
+	padding: 0;
+	list-style-type: none;
 }
 
 .scoreDisplay {
-    text-align: center;
+	text-align: center;
 }
