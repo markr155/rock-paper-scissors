@@ -1,5 +1,5 @@
 div {
-	border: 1px solid white;
+	/* border: 1px solid white; */
 }
 
 body {
@@ -18,11 +18,12 @@ body {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+	padding: 1rem 0;
 }
 
 .choiceCardContainer {
-	width: 50%;
-	height: 200px;
+	width: 100%;
+	height: 250px;
 	display: flex;
 	/* align-items: center; */
 	justify-content: space-evenly;
@@ -31,6 +32,7 @@ body {
 .choiceCard {
 	width: 30%;
 	aspect-ratio: 1;
+	display: flex;
 }
 
 .choiceSVG {
