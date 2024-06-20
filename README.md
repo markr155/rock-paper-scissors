@@ -12,3 +12,7 @@ Create start game, window popup -> 1p or 2p option
 update battle container to something that resembles a game
 reset game option after finish
 add 2p option
+
+
+Notes:
+SVG styles hard coded
