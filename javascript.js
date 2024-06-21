@@ -84,9 +84,13 @@ const battleContainer = document.querySelector('.battleContainer');
 const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
 	button.addEventListener('click', () => {
-		let playerSelection = button.id;
-		let compChoice = getComputerChoice();
-		let winner = playRound(playerSelection, compChoice);
+		// When button is clicked change player icon
+		// Play countdown
+		// When countdown end reveal comp choice
+		// Display win/lose/draw
+		const playerSelection = button.id;
+		const compChoice = getComputerChoice();
+		const winner = playRound(playerSelection, compChoice);
 		updateBattle(playerSelection, compChoice);
 		updateScore(winner, playerSelection, compChoice);
 		checkWinner(playerScore, computerScore, ties);
