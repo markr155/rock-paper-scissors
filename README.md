@@ -1,7 +1,7 @@
 Beginning rock paper scissors game complete
 
 Current:
-Function that takes player choice and replaces player card with choice img
+-->Function that takes player choice and replaces player card with choice img
 Take choice buttons away after player choice
 Function that plays countdown
 Reveal computer choice
