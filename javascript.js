@@ -41,18 +41,13 @@ function playRound(player, computer) {
 
 // updates running score and inputs round into score log
 function updateScore(winner, playerSelection, compChoice) {
-	let newLog = document.createElement('li');
 	if (winner == 'player') {
 		playerScore++;
-		newLog.textContent += `Player scores with ${playerSelection} over ${compChoice}`;
 	} else if (winner == 'computer') {
 		computerScore++;
-		newLog.textContent += `Computer scores with ${compChoice} over ${playerSelection}`;
 	} else {
 		ties++;
-		newLog.textContent += `A tied point! Both players chose ${playerSelection}`;
 	}
-	scoreLog.appendChild(newLog);
 	scoreDisplay.textContent = `Player score: ${playerScore} Computer score: ${computerScore} Ties: ${ties}`;
 }
 
@@ -81,24 +76,30 @@ function resetGame(winner) {
 	computerScore = 0;
 	ties = 0;
 	scoreDisplay.textContent = 'Player score: 0 Computer score: 0 Ties: 0';
-	scoreLog.textContent = '';
-	if (winner == 'tie'){
-		victoryModal.textContent = "It's a tie game! Better luck next time."
+	if (winner == 'tie') {
+		victoryModal.textContent = "It's a tie game! Better luck next time.";
 	} else if (winner == 'computer') {
-		victoryModal.textContent = `The winner is the Computer! Ouch, embarrassing honestly`
+		victoryModal.textContent = `The winner is the Computer! Ouch, embarrassing honestly`;
 	} else {
-		victoryModal.textContent = `Congratulations! You're the winner!`
+		victoryModal.textContent = `Congratulations! You're the winner!`;
 	}
-	
+	resetButton = document.createElement('button');
+	resetButton.textContent = 'Reset Game';
+	resetButton.addEventListener('click', () => {
+		contentWrapper.classList.remove('blur');
+		victoryModal.classList.add('hidden');
+		victoryModal.close();
+	});
+	victoryModal.appendChild(resetButton);
+	contentWrapper.classList.add('blur');
 	victoryModal.showModal();
-
+	victoryModal.classList.remove('hidden');
 }
 
 let playerScore = 0;
 let computerScore = 0;
 let ties = 0;
 const scoreDisplay = document.querySelector('.scoreDisplay');
-const scoreLog = document.querySelector('#scoreLog');
 const battleContainer = document.querySelector('.battleContainer');
 const playerChoiceCard = document.getElementById('playerCard');
 const compChoiceCard = document.getElementById('compCard');
@@ -109,12 +110,6 @@ buttons.forEach((button) => {
 		const playerSelection = button.id;
 		const compChoice = getComputerChoice();
 		const roundWinner = playRound(playerSelection, compChoice);
-		// Disable buttons
-		// Play countdown
-		// When countdown end reveal comp choice
-		// Display win/lose/draw
-		// Re-enable buttons
-
 		updateBattle(playerSelection, compChoice);
 		updateScore(roundWinner, playerSelection, compChoice);
 		const gameWinner = checkWinner(playerScore, computerScore, ties);
