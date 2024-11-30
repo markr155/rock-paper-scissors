@@ -54,6 +54,7 @@ body {
 	aspect-ratio: 1;
 	display: flex;
 	justify-content: center;
+	position: relative;
 }
 
 .compChoiceImg {
@@ -90,4 +91,27 @@ ul {
 
 .scoreDisplay {
 	text-align: center;
+}
+
+.checkmark {
+	position: absolute;
+	width: 150px;
+	bottom: 25%;
+	opacity: 0;
+}
+
+@keyframes flash {
+	0% {
+		opacity: 1;
+	}
+	30% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+.checkmark_flash {
+	animation: flash 1s;
 }

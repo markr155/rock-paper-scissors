@@ -64,8 +64,6 @@ function checkWinner(playerScore, computerScore, ties) {
 		winner = 'player';
 	} else if (computerScore >= 5) {
 		winner = 'computer';
-	} else if (ties >= 5) {
-		winner = 'tie';
 	}
 	return winner;
 }
@@ -85,7 +83,7 @@ function resetGame(winner) {
 	}
 	resetButton = document.createElement('button');
 	resetButton.textContent = 'Reset Game';
-	
+
 	resetButton.addEventListener('click', () => {
 		contentWrapper.classList.remove('blur');
 		victoryModal.classList.add('hidden');
@@ -98,10 +96,30 @@ function resetGame(winner) {
 	victoryModal.classList.remove('hidden');
 }
 
+function checkMark(winner) {
+	if (winner == 'player') {
+		winner = playerChoiceCard;
+	} else if (winner == 'computer') {
+		winner = compChoiceCard;
+	} else return;
+	const mark = document.createElement('img');
+	mark.src = 'imgs/check.svg';
+	mark.classList.add('checkmark');
+	mark.classList.add('checkmark_flash');
+	winner.appendChild(mark);
+}
+
+function disableButtons() {
+	buttons.forEach((button) => {
+		button.disabled = true;
+		setTimeout(() => (button.disabled = false), 500);
+	});
+}
+
 let playerScore = 0;
 let computerScore = 0;
 let ties = 0;
-const resetImg = 'question-mark'
+const resetImg = 'question-mark';
 const scoreDisplay = document.querySelector('.scoreDisplay');
 const battleContainer = document.querySelector('.battleContainer');
 const playerChoiceCard = document.getElementById('playerCard');
@@ -113,6 +131,8 @@ buttons.forEach((button) => {
 		const compChoice = getComputerChoice();
 		const roundWinner = playRound(playerSelection, compChoice);
 		updateBattle(playerSelection, compChoice);
+		checkMark(roundWinner);
+		disableButtons();
 		updateScore(roundWinner, playerSelection, compChoice);
 		const gameWinner = checkWinner(playerScore, computerScore, ties);
 		resetGame(gameWinner);
