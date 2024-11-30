@@ -14,14 +14,10 @@
 			</div>
 			<div class="choiceCardContainer">
 				<div class="choiceCard" id="playerCard">
-					<object
-						class="choiceSVG"
-						type="image/svg+xml"
-						data="imgs/rock.svg"
-					></object>
+					<img class='choiceSVG' src="imgs/question-mark.svg" alt="">
 				</div>
 				<div class="choiceCard" id="compCard">
-					<img src="imgs/question-mark.svg" alt="">
+					<img class='choiceSVG' src="imgs/question-mark.svg" alt="">
 				</div>
 			</div>
 		</div>
@@ -36,7 +32,11 @@
 				<ul id="scoreLog"></ul>
 			</div>
 		</div>
-
+		<dialog id="victoryModal">
+			<div>
+				<p>Victory! or not</p>
+			</div>
+		</dialog>
 		<script src="javascript.js"></script>
 	</body>
 </html>

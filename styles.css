@@ -3,7 +3,7 @@ div {
 }
 
 body {
-	background-color: rgb(17 24 3);
+	background-color: rgb(26, 34, 46);
 	color: rgb(209 213 219);
 	display: flex;
 	flex-direction: column;
@@ -39,16 +39,8 @@ body {
 	width: 30%;
 	aspect-ratio: 1;
 	display: flex;
+	justify-content: center;
 }
-
-/* .choiceSVG {
-	width: 100%;
-}
-
-.choiceSVG > * {
-	stroke: white;
-	fill: white; 
-} */
 
 .compChoiceImg {
 	transform: scaleX(-1);
