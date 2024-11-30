@@ -41,13 +41,17 @@ body {
 	display: flex;
 }
 
-.choiceSVG {
+/* .choiceSVG {
 	width: 100%;
 }
 
 .choiceSVG > * {
 	stroke: white;
-	fill: white;
+	fill: white; 
+} */
+
+.compChoiceImg {
+	transform: scaleX(-1);
 }
 
 .buttonContainer {

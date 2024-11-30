@@ -57,7 +57,14 @@ function updateScore(winner, playerSelection, compChoice) {
 }
 
 function updateBattle(playerSelection, compChoice) {
+<<<<<<< HEAD
   battleContainer.textContent = `Player Choice: ${playerSelection} Computer Choice: ${compChoice}`;
+=======
+	const playerCard = document.getElementById('playerCard');
+	const compCard = document.getElementById('compCard');
+	playerCard.innerHTML = `<img src='imgs/${playerSelection.toLowerCase()}.svg'>`;
+	compCard.innerHTML = `<img class='compChoiceImg' src='imgs/${compChoice.toLowerCase()}.svg'>`;
+>>>>>>> 03f6d93 (Choices now display images for both computer & player)
 }
 
 // Appends game result to score log
@@ -86,6 +93,7 @@ const comChoiceCard = document.getElementById('comCard');
 
 const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
+<<<<<<< HEAD
   button.addEventListener('click', () => {
     // When button is clicked change player icon
     // Play countdown
@@ -99,3 +107,20 @@ buttons.forEach((button) => {
     checkWinner(playerScore, computerScore, ties);
   });
 });
+=======
+	button.addEventListener('click', () => {
+		const playerSelection = button.id;
+		const compChoice = getComputerChoice();
+		const winner = playRound(playerSelection, compChoice);
+		// Disable buttons
+		// Play countdown
+		// When countdown end reveal comp choice
+		// Display win/lose/draw
+		// Re-enable buttons
+
+		updateBattle(playerSelection, compChoice);
+		updateScore(winner, playerSelection, compChoice);
+		checkWinner(playerScore, computerScore, ties);
+	});
+});
+>>>>>>> 03f6d93 (Choices now display images for both computer & player)
