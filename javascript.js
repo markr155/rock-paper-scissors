@@ -85,9 +85,11 @@ function resetGame(winner) {
 	}
 	resetButton = document.createElement('button');
 	resetButton.textContent = 'Reset Game';
+	
 	resetButton.addEventListener('click', () => {
 		contentWrapper.classList.remove('blur');
 		victoryModal.classList.add('hidden');
+		updateBattle(resetImg, resetImg);
 		victoryModal.close();
 	});
 	victoryModal.appendChild(resetButton);
@@ -99,11 +101,11 @@ function resetGame(winner) {
 let playerScore = 0;
 let computerScore = 0;
 let ties = 0;
+const resetImg = 'question-mark'
 const scoreDisplay = document.querySelector('.scoreDisplay');
 const battleContainer = document.querySelector('.battleContainer');
 const playerChoiceCard = document.getElementById('playerCard');
 const compChoiceCard = document.getElementById('compCard');
-
 const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
 	button.addEventListener('click', () => {
